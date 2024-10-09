@@ -17,7 +17,7 @@ class Model:
         self.c.execute("""CREATE TABLE IF NOT EXISTS class (
                        class_id INTEGER PRIMARY KEY,
                        class_name TEXT)""")
-        #Insert Classes
+        #Insert classes
         self.c.execute("""INSERT OR REPLACE INTO class (class_id, class_name)
                        VALUES (1, 'PERSONAL'), (2, 'TRUST')""")
 
@@ -43,7 +43,7 @@ class Model:
                        subclass_id INTEGER,
                        FOREIGN KEY(class_id) REFERENCES class(class_id),
                        FOREIGN KEY(subclass_id) REFERENCES subclass(subclass_id))""")
-        
+
         #Create expenses table
         self.c.execute("""CREATE TABLE IF NOT EXISTS expenses (
                        expense_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,7 +51,9 @@ class Model:
                        description TEXT,
                        amount REAL,
                        account TEXT,
-                       transaction_type INTEGER
+                       transaction_type INTEGER,
+                       class_id INTEGER,
+                       subclass_id INTEGER,
                        FOREIGN KEY(class_id) REFERENCES class(class_id),
                        FOREIGN KEY(subclass_id) REFERENCES subclass(subclass_id))""")
 
