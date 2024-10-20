@@ -1,8 +1,12 @@
 import os
 
 class ExportRecords:
+    '''
+    TO DO'''
     def __init__(self):
-        self.controller()
+        self._controller()
 
-    def controller(self):
+    def _controller(self):
+        '''
+        TO DO'''
         print("EXPORT")
